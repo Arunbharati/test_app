@@ -23,4 +23,4 @@
           = link_to "Delete", category_product_path(:id => product.id, :category_id => params[:id]), :method => "delete"
           %br
 %h3
-  = link_to 'Click here to add New Product', new_category_product_path(@category)
+  = link_to 'Add New Product', new_category_product_path(@category), class: "btn btn-primary"

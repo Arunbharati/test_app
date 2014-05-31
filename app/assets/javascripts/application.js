@@ -37,3 +37,22 @@ $(document).ready(function(){
   })
   
  })
+$(document).ready(function () {
+    $("#accordion").accordion({ header: "h3",          
+        autoheight: false,
+        active: false,
+        alwaysOpen: false,
+        fillspace: false,
+        collapsible: true,
+    });
+});
+var do_on_load = function() {
+  $("#accordion").accordion({ header: "h3",          
+        autoheight: false,
+        active: false,
+        alwaysOpen: false,
+        fillspace: false,
+        collapsible: true,
+    });
+}
+$(window).bind('page:change', do_on_load)

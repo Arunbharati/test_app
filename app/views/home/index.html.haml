@@ -1,8 +1,26 @@
-%h1.text-center Welcome To The Home Page
-%div{:style => "background-color:white"}
-  %h3
-    =link_to "Click here to Select Category", categories_path
-  %br
-  - if current_user && (current_user.role? :admin)
-    %h3
-      =link_to "Click here to Show Users", "/users"
+%div#accordion
+  -@categories.each do |cat|
+    .panel.panel-default.m-bottom
+      %h3.panel-heading #{cat.name}
+      .panel-body
+        - if cat.products.count == 0
+          %h5.center No product found in this category 
+        - else
+          %table.table.table-hover.table-bordered.table-responsive
+            %thead
+              %tr
+                %th Name
+                %th Descrption
+                - if current_user && (current_user.role? :admin)
+                  %th Actions
+            %tbody
+              -cat.products.each do |pro|
+                %tr
+                  %td= pro.name
+                  %td= pro.description
+                  - if current_user && (current_user.role? :admin)
+                    %td
+                      = link_to 'Show', category_product_path(cat,pro)
+                      = link_to 'Edit', edit_category_product_path(cat,pro)
+                      = link_to 'Destroy', category_product_path(cat,pro), :method => :delete, :data => { :confirm => 'Are you sure?' }
+              

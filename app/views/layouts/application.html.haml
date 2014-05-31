@@ -4,11 +4,12 @@
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %title= content_for?(:title) ? yield(:title) : 'Basic App'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Basic App'}"}
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    %script{src: "http://code.jquery.com/ui/1.10.2/jquery-ui.js", type: "text/javascript"}
     = csrf_meta_tags
   %body
-    %header
+    %header.navbar-main
       = render 'layouts/navigation'
     %main{:role => "main", :style => "padding-bottom:0"}
       = render 'layouts/messages'
