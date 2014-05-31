@@ -19,9 +19,11 @@ class User < ActiveRecord::Base
       registered_user = User.where(:email => auth.info.email).first
       if registered_user
         Provider.create(:uuid => auth.uid, :provider_name => auth.provider, :user_id => registered_user.id)
+        registered_user.confirm!
         return registered_user
       else
         user = User.create(email:auth.info.email,password:Devise.friendly_token[0,20],)
+        user.confirm!
         Provider.create(:uuid => auth.uid, :provider_name => auth.provider, :user_id => user.id)
         return user
       end

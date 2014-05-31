@@ -23,9 +23,9 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
   require 'omniauth-linkedin'
   require 'omniauth-google-oauth2'
-  config.omniauth :linkedin, "75gs76ubcgwfvn", "3ROQUls6gRDtxEUP" , :scope => 'r_fullprofile r_emailaddress'
-  config.omniauth :facebook, "177150055796142", "340dc7c13f0ef0ba5ae5b1d3502e1392"
-  config.omniauth :google_oauth2, "1096143264090-mphvtqa5ob89u72rk7b0l8or2u6ekqs7.apps.googleusercontent.com", "Ws_HYtuHf-7imQNzQ9mqRD_K", {}
+  config.omniauth :linkedin, ENV['linkedin_key'], ENV['linkedin_secret'] , :scope => 'r_fullprofile r_emailaddress'
+  config.omniauth :facebook, ENV['facebook_key'], ENV['facebook_secret']
+  config.omniauth :google_oauth2, ENV['google_key'], ENV['google_secret'], {}
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
