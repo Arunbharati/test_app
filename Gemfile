@@ -9,7 +9,6 @@ gem 'devise'
 gem 'haml-rails'
 gem 'rails_layout'
 gem 'bourbon'
-gem 'debugger'
 gem "cancancan"
 gem 'bootstrap-sass', '>= 3.0.0.0'
 # Use SCSS for stylesheets
@@ -43,7 +42,7 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+ gem 'debugger', group: [:development, :test]
 
 gem 'omniauth-oauth2'
 gem 'omniauth-facebook'
