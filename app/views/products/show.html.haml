@@ -1,0 +1,12 @@
+%p#notice= notice
+
+.panel.panel-default
+  .panel-heading
+    %b Product Name:
+    = @product.name
+  .panel-body
+    %b Product Description:
+    = @product.description
+
+-#= link_to 'Edit', edit_product_path(@product)
+= link_to 'Back', category_path(:id => params[:category_id])

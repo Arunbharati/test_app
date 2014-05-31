@@ -1,0 +1,18 @@
+-# navigation styled for Bootstrap 3.0
+%nav.navbar.navbar-main
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        MENU
+      %a{:href => root_path, :class => "navbar-brand"}
+        %span the
+        Basic_App
+      %ul.nav.navbar-nav.navbar-left 
+        %li{class: ("active" if current_page?(root_path))}
+          = link_to "Home", root_path
+        %li{class: ("active" if current_page?(categories_path))}
+          = link_to "Category", categories_path
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        = render 'layouts/navigation_links'

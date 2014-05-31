@@ -1,0 +1,14 @@
+%h1.text-center Categories
+
+%table.table.table-striped
+  - @categories.each do |cat|
+    %tr
+      %td
+        = link_to cat.name, category_path(:id => cat.id), :class => "btn btn-primary btn-lg"
+            
+      %td= link_to 'Edit', edit_category_path(cat)
+      %td= link_to 'Delete', cat, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%div{:style => "background-color:white"}
+  %h3
+    = link_to 'New Category', new_category_path

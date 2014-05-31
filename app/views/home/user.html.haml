@@ -1,0 +1,13 @@
+%h1.text-center Users
+%table.table
+  %thead
+    %tr
+      %th Email
+      %th Role
+  %tbody
+    - @users.each do |a|
+      %tr
+        %td
+          = a.email
+        %td.change_role{:id => "#{a.id}"}
+          = select("role", "val", ["admin","user"],:selected => a.roles.first.name)

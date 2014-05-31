@@ -1,0 +1,8 @@
+%h1.text-center Welcome To The Home Page
+%div{:style => "background-color:white"}
+  %h3
+    =link_to "Click here to Select Category", categories_path
+  %br
+  - if current_user && (current_user.role? :admin)
+    %h3
+      =link_to "Click here to Show Users", "/users"
