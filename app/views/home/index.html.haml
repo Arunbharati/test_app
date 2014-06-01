@@ -1,7 +1,7 @@
 %div#accordion
   -@categories.each do |cat|
     .panel.panel-default.m-bottom
-      %h3.panel-heading #{cat.name}
+      %h3.panel-heading.m-pointer #{cat.name}
       .panel-body
         - if cat.products.count == 0
           %h5.center No product found in this category 
