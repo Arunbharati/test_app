@@ -72,9 +72,12 @@ RUN rm -rf /opt/rails_app/tmp/*
 WORKDIR /opt/rails_app
 
 # Persist data between containers
-
+RUN adduser --disabled-password --home=/rails --gecos "" rails
+ADD scripts/start /start
+ADD scripts/setup /setup
 #-----------------------------------------------------------------------
 # Container config
 #-----------------------------------------------------------------------
-CMD ["/usr/bin/supervisord"]
-EXPOSE 22 80
+EXPOSE 3000
+USER rails
+CMD /start

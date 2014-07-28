@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 # Use sqlite3 as the database for Active Record
-gem "pg"
+#gem "pg"
 gem 'devise'
 gem 'haml-rails'
 gem 'rails_layout'
@@ -42,7 +42,7 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
- gem 'debugger', group: [:development, :test]
+ #gem 'debugger', group: [:development, :test]
 group :development do
   gem 'better_errors'
 end
